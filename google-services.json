@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "873779549931",
+    "project_id": "test-hyades",
+    "storage_bucket": "test-hyades.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873779549931:android:28cab42049053160ec50ae",
+        "android_client_info": {
+          "package_name": "com.example.test_hyades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873779549931-84uscelj3t5d98res49rfr0unbptchng.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.test_hyades",
+            "certificate_hash": "0910836de9709e23458d1b3cd3dbe73203e201bd"
+          }
+        },
+        {
+          "client_id": "873779549931-oa7d4ifa6ooarctv4702g60op0ksdcjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZrkhQbhEPsWhOwxdzAARhpIr30yNCPV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873779549931-oa7d4ifa6ooarctv4702g60op0ksdcjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

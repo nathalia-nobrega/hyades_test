@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">test_hyades</string>
+    <string name="content_description_search_icon">Ícone de Pesquisar</string>
+    <string name="search_icon_title">Search Icon</string>
+    <string name="content_description_filme_da_semana">Imagem do filme Não, Não Olhe!</string>
+    <string name="title_of_filme_da_semana">Corra!</string>
+    <string name="secondary_text_filme_da_semana">Jordan Peele, 2017</string>
+    <string name="filme_da_semana">filme da semana</string>
+    <string name="escolha_dos_editores">escolha dos desenvolvedores</string>
+    <string name="recomendados">recomendados</string>
+    <string name="hyades_app_title">HYADES</string>
+    <string name="film_name">Moonlight: Sob a Luz do Luar</string>
+    <string name="film_director">Barry Jenkis</string>
+    <string name="topicos_chave_abordados">Racismo, LGBTQIA+, Pobreza</string>
+    <string name="film_year">2016</string>
+    <string name="film_duration">1h41m</string>
+    <string name="page_1">Início</string>
+    <string name="page_2">Explorar</string>
+    <string name="page_3">Salvos</string>
+    <string name="page_4">Perfil</string>
+    <string name="content_description_back_icon">Voltar Icon</string>
+    <string name="back_icon_title">Voltar</string>
+    <string name="nossos_filmes">Nossos filmes :)</string>
+    <string name="entrar_conta">Entrar</string>
+    <string name="criar_conta">Crie sua conta :D</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
