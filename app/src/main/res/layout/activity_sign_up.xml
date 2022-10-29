@@ -30,12 +30,38 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userField"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="meu nome de usuário"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#817676"
+            app:boxBackgroundMode="none"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.19">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_input"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailField"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             android:gravity="center"
-            android:hint="test@example.com"
+            android:hint="digite seu e-mail"
             android:textColor="#FFFFFF"
             android:textColorHint="#817676"
             app:boxBackgroundMode="none"
@@ -45,7 +71,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/transparent_input"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#FFFFFF" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +82,7 @@
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             android:gravity="center"
-            android:hint="mypasswordtest123"
+            android:hint="digite sua senha"
             android:textColor="#FFFFFF"
             android:textColorHint="#817676"
             app:boxBackgroundMode="none"
@@ -66,7 +93,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/transparent_input"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="#FFFFFF" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -10,7 +10,6 @@ import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import org.w3c.dom.Text
 
 class SignUp : AppCompatActivity() {
 
@@ -31,6 +30,7 @@ class SignUp : AppCompatActivity() {
         }
     }
 
+    /* Criar conta */
     private fun createAccount(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -39,13 +39,13 @@ class SignUp : AppCompatActivity() {
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     updateUI(null)
                 }
             }
     }
 
+    /* Redirecionar usuário após cadastro */
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             val intent = Intent(this, MainActivity::class.java)
