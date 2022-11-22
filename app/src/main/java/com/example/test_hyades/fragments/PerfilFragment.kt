@@ -1,60 +1,85 @@
 package com.example.test_hyades.fragments
 
+import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.example.test_hyades.MainActivity
 import com.example.test_hyades.R
+import com.example.test_hyades.model.User
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import org.w3c.dom.Text
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PerfilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PerfilFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_perfil, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PerfilFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PerfilFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        /*start displaying the user's data*/
+
+        //ui
+        val mName = view.findViewById<TextView>(R.id.mNome)
+        val mEmail = view.findViewById<TextView>(R.id.mEmail)
+        val btnUpdate = view.findViewById<Button>(R.id.btnUpdate)
+        val btnLogout =  view.findViewById<TextView>(R.id.logout)
+
+        val reference = FirebaseDatabase.getInstance().getReference("Users")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
+
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val userProfile: User = snapshot.getValue(User::class.java)!!
+                val username = userProfile.name
+                val email = userProfile.email
+
+                mName.text = username
+                mEmail.text = email
+
             }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("TAG", error.message)
+            }
+
+        })
+        btnUpdate.setOnClickListener {
+            val fragment = UpdateProfileFragment()
+            val frManager = activity?.supportFragmentManager
+            val frTransaction = frManager?.beginTransaction()
+
+            frTransaction?.apply {
+                replace(R.id.perfilFragment, fragment)
+                addToBackStack(null)
+                commit()
+            }
+        }
+
+        /*end update user's data*/
+
+        btnLogout.setOnClickListener {
+            val auth = FirebaseAuth.getInstance()
+            auth.signOut()
+
+            activity?.let {
+                val intent = Intent(it, MainActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
+
     }
+
 }
+

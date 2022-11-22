@@ -52,8 +52,10 @@ class MainActivity : AppCompatActivity() {
         if (user != null) {
             val intent = Intent(this, NavigateFragments::class.java)
             startActivity(intent)
+            Toast.makeText(baseContext, "Conta logada com sucesso!",
+                Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(baseContext, "Authentication failed.",
+            Toast.makeText(baseContext, "Falha na autenticação",
                 Toast.LENGTH_SHORT).show()
         }
     }
